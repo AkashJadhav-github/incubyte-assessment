@@ -3,9 +3,13 @@ function add(numbers) {
   let num_array = getNumbersFromString(numbers);
   
   // Convert the string numbers to integers and calculate the sum
-  let sum = num_array.reduce((acc, x) => acc + parseInt(x), 0);
+  let sum = num_array.reduce((acc, x) => {
+  if (x < 0) throw new Error("Negative number");
+  return acc + parseInt(x);
+}, 0);
 
   // Return the sum
+  console.log(sum)
   return sum; 
 }
 
